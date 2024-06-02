@@ -1,0 +1,61 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class FenwickTree {
+public:
+    FenwickTree(int size) {
+        fenwick_tree.resize(size + 1, 0);
+    }
+
+    // Update the value at index 'i' by adding 'delta' to it.
+    void update(int i, int delta) {
+        while (i < fenwick_tree.size()) {
+            fenwick_tree[i] += delta;
+            i += i & -i; // Flip the rightmost set bit
+        }
+    }
+
+    // Query the prefix sum up to index 'i' in the original array.
+    int query(int i) {
+        int sum = 0;
+        while (i > 0) {
+            sum += fenwick_tree[i];
+            i -= i & -i; // Flip the rightmost set bit
+        }
+        return sum;
+    }
+
+private:
+    vector<int> fenwick_tree;
+};
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8};
+    int n = arr.size();
+
+    // Initialize Fenwick Tree with the same size as the array.
+    FenwickTree fenwick_tree(n);
+
+    // Build the Fenwick Tree by updating it with the elements of the array.
+    for (int i = 1; i <= n; ++i) {
+        fenwick_tree.update(i, arr[i - 1]);
+    }
+
+    // Query the prefix sum up to various indices.
+    cout << "Prefix Sums:" << endl;
+    for (int i = 1; i <= n; ++i) {
+        cout << "Prefix sum up to index " << i << ": " << fenwick_tree.query(i) << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+
