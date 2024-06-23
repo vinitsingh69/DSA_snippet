@@ -28,3 +28,37 @@ class DisjointSet
         
     } 
 };
+
+
+
+class Solution
+{
+	public:
+	
+	
+	 int spanningTree(int V, vector<vector<int>> adj[])
+    {
+      // int ans = 0;
+      // vector<pair<int,pair<int,int>>> edges;
+      // for(int i=0; i<V; i++){
+      //     for(auto it : adj[i]){
+      //         int u = i;
+      //         int v = it[0];
+      //         int wt = it[1]; 
+      //         edges.push_back({wt,{u,v}});
+      //     }
+      // }
+      
+      // sort(edges.begin(),edges.end());
+        DisjointSet ds(V);
+        //  for(auto i:edges){
+        //     int u=i.second.first;
+        //     int v=i.second.second;
+        //     int wt=i.first;
+        //     if(ds.findparent(u)!=ds.findparent(v)){
+        //         ds.UnionBySize(u,v);
+        //         ans+=wt;
+        //     }
+        // }
+        // return ans;
+    }
