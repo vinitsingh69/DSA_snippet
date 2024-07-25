@@ -60,6 +60,7 @@ void updateRange(int start, int end, int i, int l, int r, int val) {
     
     vector<int> querySum(int n, int arr[], int q, int queries[]) { // QUESTION
         // vector<int> segmentTree(4*n);
+        // vector<int> lazyTree(4*n);
         
         // buildSegmentTree(0, 0, n-1, segmentTree, arr);
         
